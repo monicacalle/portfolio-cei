@@ -1,0 +1,141 @@
+/* GLOBAL STYLES */
+
+/* STYLE FILES IMPORTS */
+
+@import url("header.css");
+@import url("home.css");
+@import url("skills.css");
+@import url("curriculum.css");
+@import url("about.css");
+@import url("projects.css");
+@import url("reviews.css");
+@import url("contact.css");
+
+/* FONTS FROM https://gwfh.mranftl.com/fonts*/
+
+/* geist-200 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Geist";
+  font-style: normal;
+  font-weight: 200;
+  src: url("assets/geist-v1-latin/geist-v1-latin-200.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* geist-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Geist";
+  font-style: normal;
+  font-weight: 400;
+  src: url("assets/geist-v1-latin/geist-v1-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* geist-800 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Geist";
+  font-style: normal;
+  font-weight: 800;
+  src: url("assets/geist-v1-latin/geist-v1-latin-800.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* General Reset */
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+:root {
+  font-size: 100%;
+  --text-color: rgb(231, 225, 225);
+  --main-color: #c495c9;
+  --primary: #333334c4;
+  --secondary: black;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: 1.2;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+}
+
+p a {
+  display: inline;
+  text-decoration: underline;
+}
+
+img,
+picture,
+video,
+iframe,
+svg {
+  display: block;
+  width: 100%;
+}
+
+svg {
+  color: currentColor;
+}
+
+body {
+  font-size: 1.2rem;
+  font-family: "Geist", sans-serif;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+section {
+  min-height: 60vh;
+  padding: 10rem 3% 10rem;
+}
+
+/* scrollbar */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--main-color);
+}
+::-webkit-scrollbar-track {
+  background-color: var(--bg-color);
+  width: 50px;
+}
+
+/* Media Queries */
+/* tablets  */
+@media (max-width: 1024px) {
+  html {
+    font-size: 40%;
+  }
+}
+@media (max-width: 991px) {
+  header {
+    padding: 2rem 3%;
+  }
+  section {
+    margin: auto;
+  }
+}

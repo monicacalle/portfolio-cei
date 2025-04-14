@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Marilyn",
+    "image": "/assets/images/bharath-kumar-lmC7P9ViSYg-unsplash.jpg",
+    "rating": 5,
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+  },
+  {
+    "name": "Julia",
+    "image": "/assets/images/julia-image.jpg",
+    "rating": 4,
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+  }
+]
