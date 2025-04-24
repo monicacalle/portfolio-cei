@@ -1,4 +1,4 @@
-.reviews__wrapper {
+/* .reviews__wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -128,8 +128,7 @@
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
 }
 
-/* Media Queries */
-/* tablets  */
+
 @media (max-width: 1500px) and (min-width: 990px) {
   .reviews__item {
     flex: 0 0 50%;
@@ -139,5 +138,123 @@
 @media (max-width: 991px) {
   .reviews__item {
     flex: 0 0 100%;
+  }
+} */
+/* Reviews Section Base */
+
+.reviews__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.reviews__title {
+  font-size: var(--subtitle, 2rem);
+  margin-bottom: 4rem;
+}
+
+/* Carousel Base */
+.carousel {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.carousel__track {
+  display: flex;
+  transition: transform 0.5s ease;
+  will-change: transform;
+}
+
+/* Card */
+.carousel__card {
+  flex: 0 0 100%;
+  box-sizing: border-box;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  min-width: 100%;
+}
+
+.carousel__card-inner {
+  background: var(--shadow, rgba(0, 0, 0, 0.3));
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  max-width: 340px;
+  width: 100%;
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carousel__card-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  border: 2px solid var(--main-color);
+}
+
+.carousel__card-name {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.carousel__card-role {
+  font-size: 0.9rem;
+  color: var(--main-color);
+  margin-bottom: 1rem;
+}
+
+.carousel__card-desc {
+  font-size: 1rem;
+  line-height: 1.5;
+  word-wrap: break-word;
+  text-align: center;
+}
+
+/* Controls */
+.carousel__controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.carousel__btn {
+  background: linear-gradient(135deg, var(--main-color), var(--primary));
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.carousel__btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Media Queries */
+/* tablets */
+@media (min-width: 600px) {
+  .carousel__card {
+    flex: 0 0 50%;
+    min-width: 50%;
+  }
+}
+
+/* mobile */
+@media (min-width: 1024px) {
+  .carousel__card {
+    flex: 0 0 33.3333%;
+    min-width: 33.3333%;
   }
 }

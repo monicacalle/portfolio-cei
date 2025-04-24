@@ -50,23 +50,23 @@
 }
 
 :root {
-  font-size: 100%;
   --text-color: #efeeea;
   --main-color: #e07f58;
   --primary: #3b5c7448;
   --secondary: black;
   --shadow: #484f538f;
 
-  --main-title: 10rem;
-  --subtitle: 4rem;
-  --fs-medium: 2.5rem;
-  --fs-small: 1.6rem;
+  --main-title: 6rem;
+  --subtitle: 3.5rem;
+  --fs-medium: 2rem;
+  --fs-small: 1.4rem;
   --fs-xs: 1.2rem;
   --text-size: 1rem;
 }
 
 html {
   scroll-behavior: smooth;
+  font-size: 100%;
 }
 
 h1,
@@ -110,7 +110,6 @@ svg {
 }
 
 body {
-  font-size: 1.4rem;
   font-family: "Geist", sans-serif;
   line-height: 1.5;
   overflow-x: hidden;
@@ -119,11 +118,11 @@ section {
   min-height: 60vh;
   padding: 20rem 6%;
   color: var(--text-color);
-  /* z-index: -1; */
   background-image: url("/assets/images/frame.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  overflow-x: hidden;
 }
 
 /* scrollbar */
@@ -140,19 +139,21 @@ section {
 }
 
 /* Media Queries */
-/* tablets  */
 @media (max-width: 1024px) {
   html {
-    font-size: 40%;
+    font-size: 90%;
   }
 }
 /* mobiles */
 @media (max-width: 991px) {
+  html {
+    font-size: 80%;
+  }
   header {
     padding: 2rem 3%;
   }
   section {
     margin: auto;
-    padding: 10rem 4% 10rem;
+    padding: 5rem 4% 5rem;
   }
 }

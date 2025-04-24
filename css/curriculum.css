@@ -51,6 +51,9 @@
   margin: 0 0 10px 0;
   color: var(--main-color);
 }
+.curriculum__item-description {
+  font-size: var(--text-size);
+}
 
 /* Media queries */
 @media (max-width: 768px) {

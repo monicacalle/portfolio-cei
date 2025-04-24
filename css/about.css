@@ -38,10 +38,11 @@
   justify-content: center;
   align-items: center;
   gap: 5rem;
+  font-size: var(--text-size);
 }
 
 .about__description {
-  font-size: var(--text-size);
+  /* font-size: var(--text-size); */
   line-height: 1.8;
   text-align: justify;
 }

@@ -1,76 +1,101 @@
 "use strict";
 
-// Get DOM elements for the container and navigation buttons
-const container = document.getElementById("reviews__container");
+// DOM Elements
+const track = document.getElementById("carouselTrack");
 const nextBtn = document.getElementById("nextBtn");
 const prevBtn = document.getElementById("prevBtn");
 
-let currentIndex = 0; // Current position in the carousel
-let itemsPerView = getItemsPerView(); // Number of cards visible at once
-let testimonials = []; // Array to store testimonial data
+let testimonials = [];
+let currentSlide = 0;
+let itemsPerView = getItemsPerView();
 
-// Fetch testimonial data from JSON file
+// Fetch JSON data
 fetch("./data/reviews.json")
   .then((res) => res.json())
   .then((data) => {
-    testimonials = data; // Save the data
-    renderTestimonials(); // Create the testimonial cards
-    updateCarousel(); // Update the carousel position
+    testimonials = data;
+    renderCards();
+    updateTrackPosition();
   });
 
-// Function to render testimonial cards into the container
-function renderTestimonials() {
-  container.innerHTML = ""; // Clear previous content
+// Calculates how many cards to show per view based on screen width
 
-  testimonials.forEach((testimonial) => {
+function getItemsPerView() {
+  const width = window.innerWidth;
+  if (width >= 1024) return 3;
+  if (width >= 600) return 2;
+  return 1;
+}
+
+//Renders all testimonial cards into the track
+
+function renderCards() {
+  track.innerHTML = "";
+  testimonials.forEach((t) => {
     const card = document.createElement("div");
-    card.className = "reviews__item";
-
-    // Template for each testimonial card
+    card.className = "carousel__card";
     card.innerHTML = `
-      <div class="reviews__item-inner">
-        <img class="reviews__item-img" src="${testimonial.image}" alt="${testimonial.image}" />
-        <h2 class="reviews__item-title">${testimonial.name}</h2>
-        <h4 class="reviews__item-subtitle">${testimonial.position}</h4>
-        <p class="reviews__item-description">${testimonial.description}</p>
+      <div class="carousel__card-inner">
+        <img src="${t.image}" alt="${t.name}" class="carousel__card-img" />
+        <h3 class="carousel__card-name">${t.name}</h3>
+        <h4 class="carousel__card-role">${t.position}</h4>
+        <p class="carousel__card-desc">${t.description}</p>
       </div>
     `;
-    container.appendChild(card); // Add card to the container
+    track.appendChild(card);
   });
 }
 
-// Function to determine how many items to show based on screen size
-function getItemsPerView() {
-  if (window.innerWidth <= 768) return 1; // Mobile
-  if (window.innerWidth <= 1024) return 2; // Tablet
-  return 3; // Desktop
+//Moves the track based on currentSlide index
+
+function updateTrackPosition() {
+  const slideWidth = (track.clientWidth / testimonials.length) * itemsPerView;
+  const offset = currentSlide * slideWidth;
+  track.style.transform = `translateX(-${offset}px)`;
 }
 
-// Function to move the carousel to the current index
-function updateCarousel() {
-  const itemWidth = container.clientWidth / itemsPerView; // Calculate width per item
-  const offset = currentIndex * itemWidth; // Calculate total offset
-  container.style.transform = `translateX(-${offset}px)`; // Move the carousel
+//Updates the number of items per view and rerenders
+
+function handleResize() {
+  const newItemsPerView = getItemsPerView();
+  if (newItemsPerView !== itemsPerView) {
+    itemsPerView = newItemsPerView;
+    currentSlide = 0;
+    renderCards();
+    updateTrackPosition();
+  }
 }
 
-// Move to next slide if not at the end
+// Need help from ChatGPT to improve or correctly implement this function
+// The goal is to ensure the carousel works as expected, especially with responsive design and slide transitions.
+function updateTrackPosition() {
+  const slideWidth = track.querySelector(".carousel__card").offsetWidth;
+  track.style.transform = `translateX(-${slideWidth * currentSlide}px)`;
+}
+
+function handleResize() {
+  const newItemsPerView = getItemsPerView();
+  if (newItemsPerView !== itemsPerView) {
+    itemsPerView = newItemsPerView;
+    currentSlide = 0;
+    updateTrackPosition();
+  }
+}
+
+//Event Listeners
+
 nextBtn.addEventListener("click", () => {
-  if (currentIndex < testimonials.length - itemsPerView) {
-    currentIndex++;
-    updateCarousel();
+  if (currentSlide < testimonials.length - itemsPerView) {
+    currentSlide++;
+    updateTrackPosition();
   }
 });
 
-// Move to previous slide if not at the beginning
 prevBtn.addEventListener("click", () => {
-  if (currentIndex > 0) {
-    currentIndex--;
-    updateCarousel();
+  if (currentSlide > 0) {
+    currentSlide--;
+    updateTrackPosition();
   }
 });
 
-// Adjust carousel on window resize (e.g. when screen size changes)
-window.addEventListener("resize", () => {
-  itemsPerView = getItemsPerView(); // Recalculate visible items
-  updateCarousel(); // Recalculate position
-});
+window.addEventListener("resize", handleResize);

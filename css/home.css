@@ -13,7 +13,7 @@
   margin: 3rem 0 0 0;
 }
 .home__title {
-  font-size: 10rem;
+  font-size: var(--main-title);
   font-weight: 600;
   margin: 1.5rem 0 0 0;
   line-height: 1;
@@ -24,7 +24,7 @@
   font-size: 2.5rem;
 }
 .home__title-span {
-  font-size: 6rem;
+  font-size: var(--subtitle);
   font-weight: 100;
   letter-spacing: 0.2rem;
 }
