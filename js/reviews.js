@@ -1,58 +1,76 @@
 "use strict";
 
-document.addEventListener("DOMContentLoaded", () => {
-  // Cargar el archivo JSON que contiene los datos de los testimonios
-  fetch("../data/reviews.json")
-    .then((response) => response.json())
-    .then((data) => {
-      // Seleccionar el contenedor donde se van a agregar las tarjetas
-      const reviewsContainer = document.getElementById("reviews__container");
+// Get DOM elements for the container and navigation buttons
+const container = document.getElementById("reviews__container");
+const nextBtn = document.getElementById("nextBtn");
+const prevBtn = document.getElementById("prevBtn");
 
-      // Limpiar el contenedor antes de agregar nuevas tarjetas
-      reviewsContainer.innerHTML = "";
+let currentIndex = 0; // Current position in the carousel
+let itemsPerView = getItemsPerView(); // Number of cards visible at once
+let testimonials = []; // Array to store testimonial data
 
-      // Iterar sobre los datos y crear una tarjeta para cada uno
-      data.forEach((review) => {
-        // Crear el contenedor de la tarjeta
-        const reviewItem = document.createElement("div");
-        reviewItem.classList.add("reviews__item");
+// Fetch testimonial data from JSON file
+fetch("./data/reviews.json")
+  .then((res) => res.json())
+  .then((data) => {
+    testimonials = data; // Save the data
+    renderTestimonials(); // Create the testimonial cards
+    updateCarousel(); // Update the carousel position
+  });
 
-        // Crear la imagen
-        const img = document.createElement("img");
-        img.classList.add("reviews__item-img");
-        img.src = review.image;
-        img.alt = review.name;
+// Function to render testimonial cards into the container
+function renderTestimonials() {
+  container.innerHTML = ""; // Clear previous content
 
-        // Crear el título
-        const title = document.createElement("h2");
-        title.classList.add("reviews__item-title");
-        title.textContent = review.name;
+  testimonials.forEach((testimonial) => {
+    const card = document.createElement("div");
+    card.className = "reviews__item";
 
-        // Crear la calificación (estrellas)
-        // const rating = document.createElement("div");
-        // rating.classList.add("reviews__item-rating");
-        // for (let i = 0; i < review.rating; i++) {
-        //   const star = document.createElement("i");
-        //   star.classList.add("star");
-        //   rating.appendChild(star);
-        // }
+    // Template for each testimonial card
+    card.innerHTML = `
+      <div class="reviews__item-inner">
+        <img class="reviews__item-img" src="${testimonial.image}" alt="${testimonial.image}" />
+        <h2 class="reviews__item-title">${testimonial.name}</h2>
+        <h4 class="reviews__item-subtitle">${testimonial.position}</h4>
+        <p class="reviews__item-description">${testimonial.description}</p>
+      </div>
+    `;
+    container.appendChild(card); // Add card to the container
+  });
+}
 
-        // Crear la descripción
-        const description = document.createElement("p");
-        description.classList.add("reviews__item-description");
-        description.textContent = review.description;
+// Function to determine how many items to show based on screen size
+function getItemsPerView() {
+  if (window.innerWidth <= 768) return 1; // Mobile
+  if (window.innerWidth <= 1024) return 2; // Tablet
+  return 3; // Desktop
+}
 
-        // Agregar todos los elementos a la tarjeta
-        reviewItem.appendChild(img);
-        reviewItem.appendChild(title);
-        reviewItem.appendChild(rating);
-        reviewItem.appendChild(description);
+// Function to move the carousel to the current index
+function updateCarousel() {
+  const itemWidth = container.clientWidth / itemsPerView; // Calculate width per item
+  const offset = currentIndex * itemWidth; // Calculate total offset
+  container.style.transform = `translateX(-${offset}px)`; // Move the carousel
+}
 
-        // Agregar la tarjeta al contenedor
-        reviewsContainer.appendChild(reviewItem);
-      });
-    })
-    .catch((error) => {
-      console.error("Error cargando el archivo JSON:", error);
-    });
+// Move to next slide if not at the end
+nextBtn.addEventListener("click", () => {
+  if (currentIndex < testimonials.length - itemsPerView) {
+    currentIndex++;
+    updateCarousel();
+  }
+});
+
+// Move to previous slide if not at the beginning
+prevBtn.addEventListener("click", () => {
+  if (currentIndex > 0) {
+    currentIndex--;
+    updateCarousel();
+  }
+});
+
+// Adjust carousel on window resize (e.g. when screen size changes)
+window.addEventListener("resize", () => {
+  itemsPerView = getItemsPerView(); // Recalculate visible items
+  updateCarousel(); // Recalculate position
 });

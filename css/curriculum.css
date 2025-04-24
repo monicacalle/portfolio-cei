@@ -1,20 +1,10 @@
-.curriculum {
-  background-image: url("/assets/images/andrew-kliatskyi-HHK2xGa6vJo-unsplash.jpg");
-  background-color: var(--primary);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: var(--text-color);
-  /* padding: 3rem 3rem;   */
-}
 .curriculum__wrapper {
-  max-width: 1100px;
   margin: auto;
 }
 .curriculum__title {
-  font-size: 3rem;
+  font-size: var(--subtitle);
+  margin: 0 0 6rem 0;
   text-align: center;
-  padding: 20px 0;
 }
 .curriculum__row {
   display: flex;
@@ -25,7 +15,7 @@
   padding: 0 20px;
 }
 .curriculum__col-title {
-  font-size: 28px;
+  font-size: var(--fs-medium);
   margin: 0 0 25px 0;
 }
 
@@ -45,35 +35,32 @@
   box-shadow: 0 0 25px var(--main-color);
 }
 .curriculum__item-title {
-  font-size: 20px;
+  font-size: var(--fs-small);
   margin: 0 0 12px 0;
 }
 .curriculum__item-place {
   color: var(--main-color);
-  font-size: 1rem;
+  font-size: var(--text-size);
   font-weight: 400;
   display: block;
 }
 .curriculum__item-country,
 .curriculum__item-date {
   display: inline;
-  font-size: 0.8rem;
+  font-size: var(--fs-xs);
   margin: 0 0 10px 0;
   color: var(--main-color);
-}
-.curriculum__item-description {
-  line-height: 24px;
 }
 
 /* Media queries */
 @media (max-width: 768px) {
+  .curriculum {
+    background-attachment: scroll;
+  }
   .curriculum__row {
     display: block;
   }
   .curriculum__col {
-    width: 90%;
-  }
-  .right {
-    margin-left: 20px;
+    width: 100%;
   }
 }

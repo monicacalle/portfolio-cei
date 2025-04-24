@@ -15,11 +15,11 @@ window.addEventListener("scroll", () => {
 
     if (top >= offSet && top < offSet + height) {
       navLinks.forEach((link) => {
-        link.classList.remove("active");
+        link.classList.remove("isActive");
 
         // Add active class only to the current section's nav link
         if (link.getAttribute("href").includes(id)) {
-          link.classList.add("active");
+          link.classList.add("isActive");
         }
       });
     }
@@ -29,13 +29,13 @@ window.addEventListener("scroll", () => {
 // Highlight nav link on click
 navLinks.forEach((link) => {
   link.addEventListener("click", () => {
-    navLinks.forEach((l) => l.classList.remove("active"));
-    link.classList.add("active");
-    navbar.classList.remove("active");
+    navLinks.forEach((l) => l.classList.remove("isActive"));
+    link.classList.add("isActive");
+    navbar.classList.remove("isActive");
   });
 });
 
 // Toggle navbar visibility (for mobile menu)
 menuIcon.addEventListener("click", () => {
-  navbar.classList.toggle("active");
+  navbar.classList.toggle("isActive");
 });

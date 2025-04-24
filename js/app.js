@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "projects",
     "reviews",
     "contact",
+    "footer",
   ];
 
   sections.forEach((section) => {

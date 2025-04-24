@@ -1,34 +1,28 @@
-.skills {
-  background-color: var(--primary);
-  color: var(--text-color);
-  /* padding: 1rem 2rem;  */
-}
 .skills__contenido {
-  max-width: 1000px;
   margin: auto;
 }
 .skills__title {
-  font-size: 3rem;
+  font-size: var(--subtitle);
+  margin: 0 0 6rem 0;
   text-align: center;
-  padding: 1.5rem 0;
 }
 .skills__row {
   display: flex;
 }
 .skills__col {
   width: 50%;
-  padding: 0 20px;
+  padding: 0 1.5rem;
 }
 .skills__col-title {
-  font-size: 2rem;
-  margin-bottom: 25px;
+  font-size: var(--fs-medium);
+  margin: 0 0 1.5rem;
 }
 .skill__bar {
   height: 8px;
   width: 80%;
-  background-color: #252a2e;
+  background-color: var(--shadow);
   position: relative;
-  margin-bottom: 30px;
+  margin: 0 0 3rem;
 }
 .skill__progress {
   background-color: var(--main-color);
@@ -39,7 +33,6 @@
   height: 8px;
 }
 .skill__progress-spam {
-  background-color: red;
   position: absolute;
   height: 40px;
   width: 40px;

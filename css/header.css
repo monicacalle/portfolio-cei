@@ -4,7 +4,8 @@
   left: 0;
   width: 100%;
   padding: 2rem 4%;
-  background: rgba(152, 149, 149, 0.218);
+
+  background: var(--shadow);
   backdrop-filter: blur(10px);
   display: flex;
   justify-content: space-between;
@@ -48,7 +49,7 @@
   transition: 0.3s ease;
 }
 .navbar__link:hover,
-.navbar__link.active {
+.navbar__link.isActive {
   color: var(--main-color);
   text-shadow: 0 0 25px var(--main-color);
 }
@@ -70,14 +71,14 @@
     right: 0;
     width: 50%;
     padding: 1rem 2%;
-    background: var(--primary);
-    backdrop-filter: blur(20px);
+    background: var(--shadow);
+    backdrop-filter: blur(60px);
     border-top-left-radius: 2rem;
     border-left: 2px solid var(--main-color);
     border-bottom: 2px solid var(--main-color);
     display: none;
   }
-  .navbar.active {
+  .navbar.isActive {
     display: block;
   }
   .navbar__ul {
