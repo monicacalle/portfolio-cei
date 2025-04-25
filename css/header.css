@@ -78,6 +78,7 @@
     border-bottom: 2px solid var(--main-color);
     display: none;
   }
+
   .navbar.isActive {
     display: block;
   }

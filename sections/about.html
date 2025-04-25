@@ -5,11 +5,19 @@
 
     <div class="about__grid">
       <div class="about__img-container">
-        <img
-          class="about__img"
-          src="/assets/images/Diseño sin título.png"
-          alt="Profile picture"
-        />
+        <picture>
+          <source
+            srcset="/assets/images/monica.jpg"
+            media="(min-width: 769px)"
+            type="image/png"
+          />
+          <img
+            class="about__img"
+            src="/assets/images/monica.jpg"
+            alt="Profile picture"
+            loading="lazy"
+          />
+        </picture>
       </div>
 
       <div class="about__content">
@@ -30,6 +38,7 @@
           href="/assets/curriculum/Mónica-Calle-Betancourt-FlowCV-Resume-20240412 (2) (2).pdf"
           download="resume.pdf"
           target="_blank"
+          rel="noreferrer"
         >
           Get my resume
         </a>

@@ -1,15 +1,13 @@
-.projects {
-  background-color: #131313;
-  color: var(--text-color);
-}
 .projects__wrapper {
   margin: auto;
 }
+
 .projects__title {
   font-size: var(--subtitle);
   margin: 0 0 6rem 0;
   text-align: center;
 }
+
 .projects__gallery {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -18,6 +16,7 @@
   margin: 0 auto;
   padding: 1rem 0;
 }
+
 .project {
   position: relative;
   width: 100%;
@@ -27,102 +26,99 @@
   border-radius: 25px;
   overflow: hidden;
 }
+
 .project__img {
   width: 100%;
   object-fit: cover;
   border-radius: 25px;
-  display: block;
 }
+
 .project__overlay {
   position: absolute;
   top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   text-align: center;
   background: linear-gradient(rgba(0, 0, 0, 0.933), rgba(197, 221, 235, 0.801));
   border-radius: 25px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  gap: 1rem;
-  transition: 1s;
+  align-items: center;
+  flex-direction: column;
   opacity: 0;
+  transition: opacity 1s ease;
+  padding: 1rem;
 }
-.project__overlay:hover {
+
+.project__overlay:hover,
+.project__overlay:active {
   opacity: 1;
 }
-.project__overlay-title {
-  transition: 1s;
-  font-size: var(--fs-small);
-  font-weight: 400;
-}
+
+.project__overlay-title,
 .project__overlay-description {
-  padding: 2rem;
-  font-size: var(--text-size);
+  color: white;
+  font-size: var(--fs-small);
+  margin: 0;
 }
+
+.project__overlay-description {
+  padding: 1rem;
+  font-size: 0.875rem;
+}
+
 .project__overlay-links {
   display: flex;
-  flex-wrap: row wrap;
   justify-content: center;
   gap: 1rem;
 }
 
 .project__overlay-btn {
-  display: inline-block;
   padding: 0.6rem 1.8rem;
-  color: var(--text-color);
   font-weight: 400;
   border-radius: 3rem;
-  letter-spacing: 0.06rem;
-  cursor: pointer;
-  transition: 0.4s ease;
-  text-align: center;
   background: var(--secondary);
   border: 2px solid var(--main-color);
   color: var(--main-color);
-  box-shadow: none;
-}
-
-.project__overlay-btn:hover::before {
-  left: 125%;
+  cursor: pointer;
+  transition: background 0.4s ease;
+  min-width: 180px;
 }
 
 .project__overlay-btn:hover,
 .project__overlay-btn:active {
   background: var(--main-color);
-  color: #000;
+  color: var(--secondary);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Media queries */
-@media (max-width: 1024px) {
-}
-/* tablets  */
-@media (max-width: 1024px) {
+/* Media Queries */
+/* mobile */
+@media (max-width: 768px) {
   .projects__gallery {
     grid-template-columns: 1fr;
     justify-items: center;
   }
-  .project {
-    width: 100%;
-  }
+
   .project__overlay-description {
-    padding: 2px;
-  }
-  .project__overlay-links {
-    flex-direction: column;
-    align-items: center;
+    padding: 1rem;
+    font-size: 0.75rem;
   }
 
   .project__overlay-btn {
-    width: 80%;
-    max-width: 220px;
-  }
-}
-
-/* mobile  */
-@media (max-width: 768px) {
-  .project__img {
     width: 100%;
+    font-size: 0.8rem;
+    min-width: 140px;
+    margin: 0 1rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .project__overlay-title {
+    font-size: 1rem;
+  }
+
+  .project__overlay {
+    padding: 0.8rem;
   }
 }

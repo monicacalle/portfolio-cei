@@ -1,7 +1,5 @@
 /* GLOBAL STYLES */
 
-/* STYLE FILES IMPORTS */
-
 @import url("header.css");
 @import url("home.css");
 @import url("skills.css");
@@ -13,8 +11,6 @@
 @import url("footer.css");
 
 /* FONTS FROM https://gwfh.mranftl.com/fonts*/
-
-/* geist-200 - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
   font-family: "Geist";
@@ -39,8 +35,6 @@
   src: url("assets/geist-v1-latin/geist-v1-latin-800.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
-/* General Reset */
-
 * {
   margin: 0;
   padding: 0;
@@ -51,11 +45,11 @@
 
 :root {
   --text-color: #efeeea;
-  --main-color: #e07f58;
+  --main-color: #fe7743;
   --primary: #3b5c7448;
   --secondary: black;
+  --third: #efeeea;
   --shadow: #484f538f;
-
   --main-title: 6rem;
   --subtitle: 3.5rem;
   --fs-medium: 2rem;
@@ -118,7 +112,7 @@ section {
   min-height: 60vh;
   padding: 20rem 6%;
   color: var(--text-color);
-  background-image: url("/assets/images/frame.png");
+  background-image: url("/assets/images/frame.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -136,6 +130,9 @@ section {
 ::-webkit-scrollbar-track {
   background-color: var(--bg-color);
   width: 50px;
+}
+.iconos {
+  display: none;
 }
 
 /* Media Queries */

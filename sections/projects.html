@@ -1,40 +1,85 @@
 <section class="projects" id="projects">
   <div class="projects__wrapper">
-    <h2 class="projects__title">Projects I've been worked on</h2>
+    <h2 class="projects__title">Projects I've worked on</h2>
     <div class="projects__gallery">
       <div class="project">
-        <img class="project__img" src="/assets/images/iphone.png" alt="" />
+        <picture>
+          <source
+            srcset="/assets/images/iphone.webp"
+            media="(min-width: 769px)"
+            type="image/webp"
+          />
+
+          <source
+            srcset="/assets/images/iphone.webp"
+            media="(max-width: 768px)"
+            type="image/webp"
+          />
+          <img
+            class="project__img"
+            src="/assets/images/iphone.webp"
+            alt="Iphone 15 clone product page front-end clone"
+            loading="lazy"
+            width="100%"
+            height="auto"
+          />
+        </picture>
         <div class="project__overlay">
-          <h3 class="project__overlay-title">Iphone 15 clone</h3>
+          <h3 class="project__overlay-title">Iphone 15 Clone</h3>
           <p class="project__overlay-description">
             This project is a front-end clone of Apple’s iPhone 15 product page.
-            It’s built with React, styled using Tailwind CSS, and features
-            animations powered by GSAP (GreenSock Animation Platform) and
-            Three.js 3D effects. The goal is to replicate the smooth
-            scroll-based animations and polished, responsive design of Apple’s
-            original site.
+            Built with React, styled with Tailwind CSS, and featuring animations
+            powered by GSAP (GreenSock Animation Platform) and Three.js 3D
+            effects. The goal was to replicate the smooth scroll-based
+            animations and polished, responsive design of Apple’s original site.
           </p>
           <div class="project__overlay-links">
             <a
               class="project__overlay-btn"
               href="https://iphone15-page-clone.vercel.app/"
               target="_blank"
-              >Live Demo</a
+              rel="noopener noreferrer"
+              aria-label="View live demo of the Iphone 15 Clone project in a new tab"
             >
+              Live Demo
+            </a>
             <a
               class="project__overlay-btn"
               href="https://github.com/monicacalle/iphone15-page-clone"
               target="_blank"
-              >View Code</a
+              rel="noopener noreferrer"
+              aria-label="View the source code of Iphone 15 Clone project on GitHub"
             >
+              View Code
+            </a>
           </div>
         </div>
       </div>
 
       <div class="project">
-        <img class="project__img" src="/assets/images/journalApp.png" alt="" />
+        <picture>
+          <source
+            srcset="assets/images/portfolio.56.png"
+            media="(min-width: 769px)"
+            type="image/png"
+          />
+
+          <source
+            srcset="assets/images/portfolio.56.png"
+            media="(max-width: 768px)"
+            type="image/png"
+          />
+          <img
+            class="project__img"
+            src="assets/images/portfolio.56.png"
+            alt="Journal web application built with React and Material UI"
+            loading="lazy"
+            width="100%"
+            height="auto"
+          />
+        </picture>
         <div class="project__overlay">
-          <h3 class="project__overlay-title">journal app</h3>
+          <h3 class="project__overlay-title">My portfolio</h3>
           <p class="project__overlay-description">
             This is a journal web application built with React and Material UI
             (MUI). It uses Vite for fast development and setup. The app features
@@ -46,14 +91,20 @@
               class="project__overlay-btn"
               href="https://journal-app-using-mui.vercel.app/"
               target="_blank"
-              >Live Demo</a
+              rel="noopener noreferrer"
+              aria-label="View live demo of the Journal App project in a new tab"
             >
+              Live Demo
+            </a>
             <a
               class="project__overlay-btn"
               href="https://github.com/monicacalle/Journal-app-using-MUI"
               target="_blank"
-              >View Code</a
+              rel="noopener noreferrer"
+              aria-label="View the source code of my previous portfolio project on GitHub"
             >
+              View Code
+            </a>
           </div>
         </div>
       </div>

@@ -48,5 +48,4 @@ function abilitiesEffect() {
   }
 }
 
-// Listen for scroll events and trigger the effect function
 window.addEventListener("scroll", abilitiesEffect);

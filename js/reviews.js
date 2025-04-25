@@ -36,7 +36,7 @@ function renderCards() {
     card.className = "carousel__card";
     card.innerHTML = `
       <div class="carousel__card-inner">
-        <img src="${t.image}" alt="${t.name}" class="carousel__card-img" />
+        <img src="${t.image}" alt="${t.name}" class="carousel__card-img" loading="lazy" />
         <h3 class="carousel__card-name">${t.name}</h3>
         <h4 class="carousel__card-role">${t.position}</h4>
         <p class="carousel__card-desc">${t.description}</p>

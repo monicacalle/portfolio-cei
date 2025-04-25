@@ -2,37 +2,37 @@
   {
     "name": "Tomas",
     "position": "Front end lead at Paktolus",
-    "image": "assets/images/tomas.jpg",
+    "image": "assets/images/tomas.webp",
     "description": "Monica is an extremely hardworking and dedicated person. I had the pleasure of working with her, and it was truly a great experience. She's excellent at teamwork, both giving and receiving feedback. She's always willing to learn and to share what she knows."
   },
   {
     "name": "Matias",
     "position": "Full stack developer",
-    "image": "assets/images/matias.jpg",
+    "image": "assets/images/matias.webp",
     "description": "I worked with Mónica on Enerlink’s team. I’d like to highlight her proactiveness in team collaboration, her clear communication skills, and her technical abilities. It was a pleasure to be on the same team with Mónica."
   },
   {
     "name": "Giannina",
     "position": "Corporate Relations Coordinator",
-    "image": "/assets/images/geanina.jpg",
+    "image": "/assets/images/geanina.webp",
     "description": "Mónica supervised my studies at 4Geeks Academy, always available to answer questions and creating a sense of trust with her empathetic attitude. She is dedicated and persevering."
   },
   {
     "name": "Ricardo",
     "position": "Full stack developer",
-    "image": "assets/images/ricardo.jpg", 
+    "image": "assets/images/ricardo.webp", 
     "description": "I met Mónica during the FullStack Developer certification at 4Geeks Academy, where she was the teacher's assistant. Her constant project reviews, advice, and support were among the best I received throughout the process."
   },
   {
     "name": "Julio",
     "position": "Full stack developer",
-    "image": "assets/images/julio.jpg",
+    "image": "assets/images/julio.webp",
     "description": "Mónica is always so resourceful, proactive, and committed to delivering excellent work. I really enjoyed the experience of working with you, Mónica. Thank you for always supporting the continuous improvement of our course project."
   },
   {
     "name": "Nicolas",
     "position": "Full stack developer",
-    "image": "assets/images/nicolas.jpg",
+    "image": "assets/images/nicolas.webp",
     "description": "Mónica is an excellent person to work with, always willing to help and share her knowledge with others. We worked together on a project, and there was always great communication."
   }
  
