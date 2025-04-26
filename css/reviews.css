@@ -1,116 +1,116 @@
 .reviews__container {
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .reviews__title {
-  font-size: var(--subtitle, 2rem);
-  margin-bottom: 4rem;
+    font-size: var(--subtitle, 2rem);
+    margin: 0 0 4rem 0;
 }
 
 .carousel {
-  overflow: hidden;
-  width: 100%;
-  position: relative;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
 }
 
 .carousel__track {
-  display: flex;
-  transition: transform 0.5s ease;
-  will-change: transform;
+    display: flex;
+    transition: transform 0.5s ease;
+    will-change: transform;
 }
 
 .carousel__card {
-  flex: 0 0 100%;
-  box-sizing: border-box;
-  padding: 1rem;
-  display: flex;
-  justify-content: center;
-  min-width: 100%;
+    flex: 0 0 100%;
+    box-sizing: border-box;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    min-width: 100%;
 }
 
 .carousel__card-inner {
-  background: var(--shadow, rgba(0, 0, 0, 0.3));
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 1.5rem;
-  padding: 2rem;
-  max-width: 340px;
-  width: 100%;
-  color: var(--text-color);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    background: var(--shadow, rgba(0, 0, 0, 0.3));
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    max-width: 340px;
+    width: 100%;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .carousel__card-img {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-bottom: 1rem;
-  border: 2px solid var(--main-color);
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 0 1rem 0;
+    border: 2px solid var(--main-color);
 }
 
 .carousel__card-name {
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-  font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0 0 0.5rem 0;
+    font-size: 1.2rem;
 }
 
 .carousel__card-role {
-  font-size: 0.9rem;
-  color: var(--main-color);
-  margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: var(--main-color);
+    margin: 0 0 1rem 0;
 }
 
 .carousel__card-desc {
-  font-size: 1rem;
-  line-height: 1.5;
-  word-wrap: break-word;
-  text-align: center;
+    font-size: 1rem;
+    line-height: 1.5;
+    word-wrap: break-word;
+    text-align: center;
 }
 
 .carousel__controls {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 2rem;
-  flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0 0 0;
+    flex-wrap: wrap;
 }
 
 .carousel__btn {
-  padding: 0.6rem 1.8rem;
-  font-weight: 400;
-  border-radius: 3rem;
-  background: var(--secondary);
-  border: 2px solid var(--main-color);
-  color: var(--main-color);
-  cursor: pointer;
-  transition: background 0.4s ease;
-  min-width: 180px;
+    padding: 0.6rem 1.8rem;
+    font-weight: 400;
+    border-radius: 3rem;
+    background: var(--secondary);
+    border: 2px solid var(--main-color);
+    color: var(--main-color);
+    cursor: pointer;
+    transition: background 0.4s ease;
+    min-width: 180px;
 }
 
 .carousel__btn:hover,
 .carousel__btn:active {
-  background: var(--main-color);
-  color: var(--secondary);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    background: var(--main-color);
+    color: var(--secondary);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Media Queries */
 /* tablets */
 @media (min-width: 600px) {
-  .carousel__card {
-    flex: 0 0 50%;
-    min-width: 50%;
-  }
+    .carousel__card {
+        flex: 0 0 50%;
+        min-width: 50%;
+    }
 }
 
 /* mobile */
 @media (min-width: 1024px) {
-  .carousel__card {
-    flex: 0 0 33.3333%;
-    min-width: 33.3333%;
-  }
+    .carousel__card {
+        flex: 0 0 33.3333%;
+        min-width: 33.3333%;
+    }
 }

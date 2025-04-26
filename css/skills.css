@@ -1,209 +1,217 @@
 .skills__contenido {
-  margin: auto;
+    margin: auto;
 }
+
 .skills__title {
-  font-size: var(--subtitle);
-  margin: 0 0 6rem 0;
-  text-align: center;
+    font-size: var(--subtitle);
+    margin: 0 0 6rem 0;
+    text-align: center;
 }
+
 .skills__row {
-  display: flex;
+    display: flex;
 }
+
 .skills__col {
-  width: 50%;
-  padding: 0 1.5rem;
+    width: 50%;
+    padding: 0 1.5rem;
 }
+
 .skills__col-title {
-  font-size: var(--fs-medium);
-  margin: 0 0 1.5rem;
+    font-size: var(--fs-medium);
+    margin: 0 0 1.5rem;
 }
+
 .skill-span {
-  font-size: var(--text-size);
+    font-size: var(--text-size);
 }
+
 .skill__bar {
-  height: 8px;
-  width: 80%;
-  background-color: var(--shadow);
-  position: relative;
-  margin: 0 0 3rem;
+    height: 8px;
+    width: 80%;
+    background-color: var(--shadow);
+    position: relative;
+    margin: 0 0 3rem;
 }
+
 .skill__progress {
-  background-color: var(--main-color);
-  color: var(--text-color);
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 8px;
+    background-color: var(--main-color);
+    color: var(--text-color);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 8px;
 }
+
 .skill__progress-spam {
-  position: absolute;
-  height: 40px;
-  width: 40px;
-  background-color: var(--main-color);
-  border-radius: 50px;
-  line-height: 40px;
-  text-align: center;
-  top: -17px;
-  right: -15px;
-  font-size: 14px;
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    background-color: var(--main-color);
+    border-radius: 50px;
+    line-height: 40px;
+    text-align: center;
+    top: -17px;
+    right: -15px;
+    font-size: 14px;
 }
 
 /* ANIMATIONS */
 
 .skills .skill .javascript {
-  width: 0;
-  animation: javascript 2s forwards;
+    width: 0;
+    animation: javascript 2s forwards;
 }
 @keyframes javascript {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 75%;
-  }
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 75%;
+    }
 }
 .skills .skill .react {
-  width: 0;
-  animation: react 2s forwards;
+    width: 0;
+    animation: react 2s forwards;
 }
 @keyframes react {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 80%;
-  }
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 80%;
+    }
 }
 .skills .skill .html5 {
-  width: 0;
-  animation: html5 2s forwards;
+    width: 0;
+    animation: html5 2s forwards;
 }
 @keyframes html5 {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 90%;
-  }
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 90%;
+    }
 }
 .skills .skill .css {
-  width: 0;
-  animation: css 2s forwards;
+    width: 0;
+    animation: css 2s forwards;
 }
 @keyframes css {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 70%;
-  }
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 70%;
+    }
 }
 .skills .skill .nextjs {
-  width: 0;
-  animation: nextjs 2s forwards;
+    width: 0;
+    animation: nextjs 2s forwards;
 }
 @keyframes nextjs {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 60%;
-  }
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 60%;
+    }
 }
 .skills .skill .git {
-  width: 0;
-  animation: git 2s forwards;
+    width: 0;
+    animation: git 2s forwards;
 }
 @keyframes git {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 60%;
-  }
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 60%;
+    }
 }
 .skills .skill .comunication {
-  width: 0;
-  animation: comunication 2s forwards;
+    width: 0;
+    animation: comunication 2s forwards;
 }
 @keyframes comunication {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 60%;
-  }
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 60%;
+    }
 }
 .skills .skill .teamWork {
-  width: 0;
-  animation: teamWork 2s forwards;
+    width: 0;
+    animation: teamWork 2s forwards;
 }
 @keyframes teamWork {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 95%;
-  }
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 95%;
+    }
 }
 .skills .skill .emotionalIntelligence {
-  width: 0;
-  animation: emotionalIntelligence 2s forwards;
+    width: 0;
+    animation: emotionalIntelligence 2s forwards;
 }
 @keyframes emotionalIntelligence {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 80%;
-  }
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 80%;
+    }
 }
 .skills .skill .adaptability {
-  width: 0;
-  animation: adaptability 2s forwards;
+    width: 0;
+    animation: adaptability 2s forwards;
 }
 @keyframes adaptability {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 90%;
-  }
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 90%;
+    }
 }
 .skills .skill .problemSolving {
-  width: 0;
-  animation: problemSolving 2s forwards;
+    width: 0;
+    animation: problemSolving 2s forwards;
 }
 @keyframes problemSolving {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 70%;
-  }
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 70%;
+    }
 }
 .skills .skill .patience {
-  width: 0;
-  animation: patience 2s forwards;
+    width: 0;
+    animation: patience 2s forwards;
 }
 @keyframes patience {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 99%;
-  }
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 99%;
+    }
 }
 
 /* Media queries */
 @media (max-width: 768px) {
-  .skills__row {
-    display: block;
-  }
-  .skills__col {
-    width: 100%;
-  }
-  .skills__bar {
-    width: 100%;
-  }
+    .skills__row {
+        display: block;
+    }
+    .skills__col {
+        width: 100%;
+    }
+    .skills__bar {
+        width: 100%;
+    }
 }

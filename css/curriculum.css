@@ -1,69 +1,78 @@
 .curriculum__wrapper {
-  margin: auto;
+    margin: auto;
 }
+
 .curriculum__title {
-  font-size: var(--subtitle);
-  margin: 0 0 6rem 0;
-  text-align: center;
+    font-size: var(--subtitle);
+    margin: 0 0 6rem 0;
+    text-align: center;
 }
+
 .curriculum__row {
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
+
 .curriculum__col {
-  width: 49%;
-  padding: 0 20px;
+    width: 49%;
+    padding: 0 20px;
 }
+
 .curriculum__col-title {
-  font-size: var(--fs-medium);
-  margin: 0 0 25px 0;
+    font-size: var(--fs-medium);
+    margin: 0 0 25px 0;
 }
 
 .curriculum__item {
-  padding: 25px;
-  margin: 0 0 30px 0;
-  background: rgba(106, 104, 104, 0.152);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(8px);
-  border-radius: 5%;
-  border: 1px solid rgba(226, 198, 198, 0.2);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  position: relative;
+    padding: 25px;
+    margin: 0 0 30px 0;
+    background: rgba(106, 104, 104, 0.152);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 5%;
+    border: 1px solid rgba(226, 198, 198, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
+
 .curriculum__item:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 25px var(--main-color);
+    transform: scale(1.05);
+    box-shadow: 0 0 25px var(--main-color);
 }
+
 .curriculum__item-title {
-  font-size: var(--fs-small);
-  margin: 0 0 12px 0;
+    font-size: var(--fs-small);
+    margin: 0 0 12px 0;
 }
+
 .curriculum__item-place {
-  color: var(--main-color);
-  font-size: var(--text-size);
-  font-weight: 400;
-  display: block;
+    color: var(--main-color);
+    font-size: var(--text-size);
+    font-weight: 400;
+    display: block;
 }
+
 .curriculum__item-country,
 .curriculum__item-date {
-  display: inline;
-  font-size: var(--fs-xs);
-  margin: 0 0 10px 0;
-  color: var(--main-color);
+    display: inline;
+    font-size: var(--fs-xs);
+    margin: 0 0 10px 0;
+    color: var(--main-color);
 }
+
 .curriculum__item-description {
-  font-size: var(--text-size);
+    font-size: var(--text-size);
 }
 
 /* Media queries */
 @media (max-width: 768px) {
-  .curriculum {
-    background-attachment: scroll;
-  }
-  .curriculum__row {
-    display: block;
-  }
-  .curriculum__col {
-    width: 100%;
-  }
+    .curriculum__row {
+        display: block;
+    }
+    .curriculum__col {
+        width: 100%;
+    }
 }
