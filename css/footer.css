@@ -1,7 +1,6 @@
 .footer {
   width: 100%;
   background-color: var(--secondary);
-
   position: relative;
   color: var(--text-color);
 }
@@ -39,7 +38,11 @@
 }
 .footer__title {
   font-size: var(--subtitle);
-  margin: 6rem 0;
+  margin: 2rem 0;
+}
+.footer__subtitle {
+  font-size: var(--fs-medium);
+  color: var(--main-color);
 }
 .footer__title-span {
   font-size: 3rem;
@@ -52,24 +55,23 @@
 }
 .footer__icon {
   width: 35px;
+  height: 35px;
   fill: currentColor;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   background: transparent;
-  border-radius: 50%;
   color: var(--text-color);
   gap: 4rem;
-  margin: 0 1.5rem 0 0;
+  margin: 2.5rem 1rem;
   transition: 0.3s ease-in-out;
 }
 
 .footer__icon:hover {
   color: var(--text-color);
   transform: scale(1.3) translateY(-5px);
-  box-shadow: 0 5px 30px var(--main-color);
 }
 .footer__icon:active {
-  transform: scale(0.97);
+  transform: scale(0.5);
   background-color: var(--secondary);
 }
