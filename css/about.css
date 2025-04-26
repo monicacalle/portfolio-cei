@@ -23,7 +23,6 @@
 .about__img {
   max-width: 100%;
   border-radius: 1rem;
-  box-shadow: 0 12px 25px var(--primary);
   transition: transform 0.3s ease;
 }
 
