@@ -147,6 +147,72 @@ section {
   overflow-x: hidden;
 }
 
+[data-animate] {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0);
+  transition:
+    opacity 0.75s ease,
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--enter-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+[data-animate="fade-down"] {
+  transform: translate3d(0, -22px, 0);
+}
+
+[data-animate="fade-left"] {
+  transform: translate3d(26px, 0, 0);
+}
+
+[data-animate="fade-right"] {
+  transform: translate3d(-26px, 0, 0);
+}
+
+[data-animate="zoom-soft"] {
+  transform: scale(0.94);
+}
+
+[data-animate].is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+.is-floating {
+  animation: float-soft 8s ease-in-out infinite;
+}
+
+.skills__card,
+.project-card,
+.curriculum__item,
+.contact__intro,
+.contact__form,
+.footer__wrapper,
+.carousel__card-inner {
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.skills__card:hover,
+.contact__intro:hover,
+.contact__form:hover,
+.footer__wrapper:hover,
+.carousel__card-inner:hover {
+  transform: translateY(-6px);
+}
+
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -10px, 0);
+  }
+}
+
 /* scrollbar */
 
 ::-webkit-scrollbar {
@@ -177,5 +243,24 @@ section {
 
   section {
     padding: 5.5rem 4%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  [data-animate] {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
