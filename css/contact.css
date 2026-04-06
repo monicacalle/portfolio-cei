@@ -42,7 +42,7 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: 1.25rem;
   align-items: stretch;
 }
 
@@ -88,12 +88,12 @@
   max-width: 34ch;
   font-size: var(--fs-small);
   line-height: 1.75;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .contact__mail {
   display: inline-block;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   font-size: 1rem;
   font-weight: 600;
   color: var(--main-color);

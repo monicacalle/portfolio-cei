@@ -5,14 +5,14 @@
 
 .curriculum__title {
     font-size: var(--subtitle);
-    margin: 0 0 4rem 0;
+    margin: 0 0 2.5rem 0;
     text-align: center;
 }
 
 .curriculum__row {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 .curriculum__col {
@@ -27,7 +27,7 @@
 
 .curriculum__item {
     padding: 25px;
-    margin: 0 0 30px 0;
+    margin: 0 0 20px 0;
     background: rgba(106, 104, 104, 0.152);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(8px);
@@ -74,6 +74,7 @@
     .curriculum__row {
         flex-direction: row;
         justify-content: space-between;
+        gap: 2rem;
     }
 
     .curriculum__col {
