@@ -19,6 +19,15 @@
   src: url("assets/fonts/geist-v1-latin/geist-v1-latin-200.woff2")
     format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
+@font-face {
+  font-family: "TheSeasons";
+  /* Asegúrate de que el nombre del archivo coincida exactamente */
+  src:
+    url("fonts/TheSeasons.woff2") format("woff2"),
+    url("fonts/TheSeasons.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 /* geist-regular - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
@@ -62,6 +71,7 @@
   --fs-small: 1.4rem;
   --fs-xs: 1.2rem;
   --text-size: 1rem;
+  --font-heading: "TheSeasons", serif;
 }
 
 html {
@@ -78,6 +88,12 @@ h6 {
   font-size: inherit;
   font-weight: inherit;
   line-height: 1.5;
+}
+h1,
+h2,
+.nav-links a {
+  font-family: var(--font-heading);
+  color: var(--main-color);
 }
 
 ol,
@@ -110,7 +126,7 @@ svg {
 }
 
 body {
-  background-color: #f5f4d8;
+  background-color: #f0f0e0f7;
   font-family: "Geist", sans-serif;
   line-height: 1.5;
   overflow-x: hidden;
