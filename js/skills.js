@@ -1,49 +1,37 @@
-'use strict';
+"use strict";
 
-// Prevents the effect from being triggered multiple times
 let effectTriggered = false;
 
-// Function that activates the animation or class effect when scrolling
 function abilitiesEffect() {
-    // If the effect has already been triggered, do nothing
-    if (effectTriggered) return;
+  if (effectTriggered) return;
 
-    // Get the element that contains the skills section
-    let skills = document.getElementById('skills');
+  let skillsSection = document.getElementById("skills");
+  if (!skillsSection) return;
 
-    // Calculate the distance from the top of the viewport to the skills section
-    let distanciaSkills = window.innerHeight - skills.getBoundingClientRect().top;
+  let distancia =
+    window.innerHeight - skillsSection.getBoundingClientRect().top;
 
-    // If the section is within 300px of the viewport, trigger the effect
-    if (distanciaSkills >= 300) {
-        effectTriggered = true;
+  // Si la sección está a 300px de entrar o ya entró
+  if (distancia >= 300) {
+    effectTriggered = true;
 
-        // Array of CSS classes to add to each skill bar for animation or styling
-        const classes = [
-            'javascript',
-            'react',
-            'html5',
-            'css',
-            'nextjs',
-            'git',
-            'comunication',
-            'teamWork',
-            'emotionalIntelligence',
-            'adaptability',
-            'problemSolving',
-            'patience',
-        ];
+    let bars = document.querySelectorAll(".skill__progress");
 
-        // Convert HTMLCollection to array for easier manipulation
-        let abilities = Array.from(document.getElementsByClassName('skill__progress'));
+    bars.forEach((bar) => {
+      // 1. Guardamos el valor que pusiste en el HTML (ej: "95%")
+      let targetWidth = bar.style.width;
 
-        // Loop through each skill bar and assign the corresponding class
-        abilities.forEach((elem, i) => {
-            if (i < classes.length) {
-                elem.classList.add(classes[i]);
-            }
-        });
-    }
+      // 2. IMPORTANTE: Forzamos el ancho a 0 inmediatamente
+      bar.style.width = "0px";
+
+      // 3. Esperamos 150ms. Esto garantiza que veas la animación
+      setTimeout(() => {
+        bar.style.width = targetWidth;
+      }, 150);
+    });
+  }
 }
 
-window.addEventListener('scroll', abilitiesEffect);
+window.addEventListener("scroll", abilitiesEffect);
+// Ejecutamos al cargar por si el usuario ya está posicionado en esa parte
+window.addEventListener("load", abilitiesEffect);
