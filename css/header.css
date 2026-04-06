@@ -37,7 +37,7 @@
 }
 
 .menu__icon {
-  color: var(--text-color);
+  color: var(--main-color);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -46,13 +46,73 @@
   padding: 0.75rem;
   fill: currentColor;
   border-radius: 999px;
-  background: rgba(12, 42, 88, 0.06);
-  border: 1px solid rgba(12, 42, 88, 0.08);
+  background: var(--secondary);
+  border: 1px solid var(--main-color);
+  box-shadow: 0 10px 24px rgba(12, 42, 88, 0.08);
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.menu__icon-box {
+  position: relative;
+  width: 18px;
+  height: 14px;
+}
+
+.menu__bar {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+  transition:
+    transform 0.25s ease,
+    opacity 0.2s ease,
+    top 0.25s ease;
+}
+
+.menu__bar:nth-child(1) {
+  top: 0;
+}
+
+.menu__bar:nth-child(2) {
+  top: 6px;
+}
+
+.menu__bar:nth-child(3) {
+  top: 12px;
 }
 
 .menu__icon:hover {
   cursor: pointer;
-  box-shadow: 0 0 20px rgba(78, 9, 9, 0.18);
+  background: var(--main-color);
+  color: var(--secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(12, 42, 88, 0.14);
+}
+
+.menu__icon[aria-expanded="true"] {
+  background: var(--main-color);
+  color: var(--secondary);
+  box-shadow: 0 14px 28px rgba(12, 42, 88, 0.14);
+}
+
+.menu__icon[aria-expanded="true"] .menu__bar:nth-child(1) {
+  top: 6px;
+  transform: rotate(45deg);
+}
+
+.menu__icon[aria-expanded="true"] .menu__bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu__icon[aria-expanded="true"] .menu__bar:nth-child(3) {
+  top: 6px;
+  transform: rotate(-45deg);
 }
 
 .navbar {

@@ -2,20 +2,33 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 1rem;
+  padding-top: 40px;
+  overflow-x: clip;
 }
 
 .home__wrapper {
-  width: min(100%, 430px);
+  width: 100%;
+  max-width: 480px;
   margin: 0 auto;
   text-align: center;
   color: var(--third);
 }
 
-.home__hero-image {
+.home picture {
+  display: block;
   width: 100%;
   max-width: 100%;
+  margin: 0 auto;
+}
+
+.home__hero-image {
+  display: block;
+  width: calc(100% - 28px);
+  max-width: calc(100% - 28px);
+  margin: 0 0 0 28px;
   object-fit: contain;
+  object-position: center center;
+  transform: none;
 }
 
 .home__title {
@@ -198,11 +211,19 @@
 
 @media (min-width: 769px) {
   .home {
-    padding-top: 2rem;
+    padding-top: 4rem;
   }
 
   .home__wrapper {
     width: min(100%, 1100px);
+    max-width: none;
+  }
+
+  .home__hero-image {
+    width: 100%;
+    max-width: 100%;
+    transform: none;
+    margin: 0 auto;
   }
 
   .home__span::after {

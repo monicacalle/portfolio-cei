@@ -51,7 +51,7 @@ function applyMotionTargets(root = document) {
 }
 
 function startFloatingAccents() {
-    document.querySelectorAll('.home__hero-image, .about__img').forEach((element) => {
+    document.querySelectorAll('.about__img').forEach((element) => {
         element.classList.add('is-floating');
     });
 }
