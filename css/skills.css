@@ -1,74 +1,78 @@
 .skills__contenido {
   margin: auto;
+  max-width: 1100px;
 }
 
 .skills__title {
   font-size: var(--subtitle);
-  margin: 0 0 6rem 0;
+  margin: 0 0 1rem;
   text-align: center;
 }
 
-.skills__row {
-  display: flex;
+.skills__intro {
+  max-width: 700px;
+  margin: 0 auto 4rem;
+  text-align: center;
+  font-size: var(--fs-xs);
+  color: var(--text-color);
 }
 
-.skills__col {
-  width: 50%;
-  padding: 0 1.5rem;
+.skills__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.skills__card {
+  height: 100%;
+  padding: 2rem;
+  border: 1px solid rgba(12, 42, 88, 0.12);
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: 0 16px 40px rgba(12, 42, 88, 0.08);
+}
+
+.skills__eyebrow {
+  display: inline-block;
+  margin: 0 0 0.75rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--main-color);
 }
 
 .skills__col-title {
   font-size: var(--fs-medium);
+  margin: 0 0 0.75rem;
+  color: var(--primary);
+  line-height: 1.2;
+}
+
+.skills__description {
   margin: 0 0 1.5rem;
-}
-
-.skill-span {
   font-size: var(--text-size);
+  color: var(--text-color);
 }
 
-.skill__bar {
-  height: 8px;
-  width: 80%;
-  background-color: var(--shadow);
-  position: relative;
-  margin: 0 0 3rem;
+.skills__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
 }
 
-.skill__progress {
-  background-color: var(--main-color);
-  color: #f3f2cf;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 8px;
-
-  width: 0;
-
-  transition: width 2s cubic-bezier(0.1, 0.7, 1, 0.1); /* Curva de movimiento más natural */
-}
-
-.skill__progress-spam {
-  position: absolute;
-  height: 40px;
-  width: 40px;
-  background-color: var(--main-color);
-  border-radius: 50px;
-  line-height: 40px;
-  text-align: center;
-  top: -17px;
-  right: -15px;
-  font-size: 14px;
+.skills__tag {
+  padding: 0.65rem 1rem;
+  border: 1px solid rgba(78, 9, 9, 0.16);
+  border-radius: 999px;
+  background: rgba(183, 205, 228, 0.25);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--primary);
 }
 
 /* Media queries */
-@media (max-width: 768px) {
-  .skills__row {
-    display: block;
-  }
-  .skills__col {
-    width: 100%;
-  }
-  .skills__bar {
-    width: 100%;
+@media (min-width: 769px) {
+  .skills__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

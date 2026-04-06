@@ -1,17 +1,23 @@
 'use strict';
 
-let menuIcon = document.querySelector('.menu__icon');
-let navbar = document.querySelector('.navbar');
-let sections = document.querySelectorAll('section');
-let navLinks = document.querySelectorAll('.navbar__link');
+const menuIcon = document.querySelector('.menu__icon');
+const navbar = document.querySelector('.navbar');
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('.navbar__link');
+const desktopBreakpoint = window.matchMedia('(min-width: 769px)');
+
+const closeMenu = () => {
+    navbar.classList.remove('isActive');
+    menuIcon.setAttribute('aria-expanded', 'false');
+};
 
 // Add active class to nav links based on scroll position
 window.addEventListener('scroll', () => {
     sections.forEach((sec) => {
-        let top = window.scrollY;
-        let offSet = sec.offsetTop - 150;
-        let height = sec.offsetHeight;
-        let id = sec.getAttribute('id');
+        const top = window.scrollY;
+        const offSet = sec.offsetTop - 150;
+        const height = sec.offsetHeight;
+        const id = sec.getAttribute('id');
 
         if (top >= offSet && top < offSet + height) {
             navLinks.forEach((link) => {
@@ -31,11 +37,26 @@ navLinks.forEach((link) => {
     link.addEventListener('click', () => {
         navLinks.forEach((l) => l.classList.remove('isActive'));
         link.classList.add('isActive');
-        navbar.classList.remove('isActive');
+        closeMenu();
     });
 });
 
 // Toggle navbar visibility (for mobile menu)
 menuIcon.addEventListener('click', () => {
     navbar.classList.toggle('isActive');
+    menuIcon.setAttribute('aria-expanded', navbar.classList.contains('isActive') ? 'true' : 'false');
+});
+
+desktopBreakpoint.addEventListener('change', (event) => {
+    if (event.matches) {
+        closeMenu();
+    }
+});
+
+document.addEventListener('click', (event) => {
+    if (!navbar.classList.contains('isActive')) return;
+
+    if (!navbar.contains(event.target) && !menuIcon.contains(event.target)) {
+        closeMenu();
+    }
 });

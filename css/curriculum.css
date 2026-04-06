@@ -1,21 +1,23 @@
 .curriculum__wrapper {
     margin: auto;
+    max-width: 1100px;
 }
 
 .curriculum__title {
     font-size: var(--subtitle);
-    margin: 0 0 6rem 0;
+    margin: 0 0 4rem 0;
     text-align: center;
 }
 
 .curriculum__row {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 .curriculum__col {
-    width: 49%;
-    padding: 0 20px;
+    width: 100%;
+    padding: 0;
 }
 
 .curriculum__col-title {
@@ -68,11 +70,14 @@
 }
 
 /* Media queries */
-@media (max-width: 768px) {
+@media (min-width: 769px) {
     .curriculum__row {
-        display: block;
+        flex-direction: row;
+        justify-content: space-between;
     }
+
     .curriculum__col {
-        width: 100%;
+        width: 49%;
+        padding: 0 20px;
     }
 }
