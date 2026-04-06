@@ -48,35 +48,21 @@
 
 :root {
   /* Nueva Paleta de Colores */
-  --text-color: #f6d8cc; /* Blush - Para textos suaves sobre fondos oscuros */
-  --main-color: #a9cee086; /* Deep Terracotta - Color de acento principal */
-  --primary: #52451b; /* Deep Sage - Para secciones o fondos secundarios */
-  --secondary: #000a49; /* Rich Wine - Color para el fondo principal o botones */
+  --text-color: #240e06; /* Blush - Para textos suaves sobre fondos oscuros */
+  --main-color: #4e0909fa; /* Deep Terracotta - Color de acento principal */
+  --primary: #0c2a58; /* Deep Sage - Para secciones o fondos secundarios */
+  --secondary: #b7cde4; /* Rich Wine - Color para el fondo principal o botones */
   --third: #acb3c6; /* Muted Blue - Para detalles, bordes o estados hover */
-  --shadow: rgba(0, 0, 0, 0.5);
+  --shadow: rgba(84, 83, 83, 0.5);
 
   /* Mantengo tus tamaños de fuente actuales */
-  --main-title: 6rem;
+  --main-title: 4rem;
   --subtitle: 3.5rem;
   --fs-medium: 2rem;
   --fs-small: 1.4rem;
   --fs-xs: 1.2rem;
   --text-size: 1rem;
 }
-/* :root {
-  --text-color: #efeeea;
-  --main-color: #fe7743;
-  --primary: #3b5c7448;
-  --secondary: black;
-  --third: #efeeea;
-  --shadow: #484f538f;
-  --main-title: 6rem;
-  --subtitle: 3.5rem;
-  --fs-medium: 2rem;
-  --fs-small: 1.4rem;
-  --fs-xs: 1.2rem;
-  --text-size: 1rem;
-} */
 
 html {
   scroll-behavior: smooth;
@@ -124,7 +110,7 @@ svg {
 }
 
 body {
-  background-color: #490013;
+  background-color: #f5f4d8;
   font-family: "Geist", sans-serif;
   line-height: 1.5;
   overflow-x: hidden;
@@ -133,7 +119,6 @@ section {
   min-height: 60vh;
   padding: 4rem 6%;
   color: var(--text-color);
-  /* background-image: url("/assets/images/frame.webp"); */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

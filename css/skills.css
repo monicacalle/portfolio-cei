@@ -34,17 +34,9 @@
   margin: 0 0 3rem;
 }
 
-/* .skill__progress {
-  background-color: var(--main-color);
-  color: var(--text-color);
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 8px;
-} */
 .skill__progress {
   background-color: var(--main-color);
-  color: var(--text-color);
+  color: #f3f2cf;
   position: absolute;
   top: 0;
   left: 0;
