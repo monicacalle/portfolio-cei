@@ -30,9 +30,9 @@
 .skills__card {
   height: 100%;
   padding: 2rem;
-  border: 1px solid rgba(12, 42, 88, 0.12);
+  border: 2px solid rgba(78, 9, 9);
   border-radius: 1.5rem;
-  background: rgba(255, 255, 255, 0.55);
+  background: rgba(254, 254, 254, 0.059);
   box-shadow: 0 16px 40px rgba(12, 42, 88, 0.08);
 }
 

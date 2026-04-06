@@ -15,12 +15,17 @@
 }
 
 .logo {
-  font-size: 1.25rem;
-  color: var(--main-color);
-  font-weight: 600;
+  display: block;
   cursor: pointer;
   transition: 0.3s ease;
   max-width: 70%;
+}
+
+.logo__img {
+  width: auto;
+  height: 42px;
+  max-width: 100%;
+  object-fit: contain;
 }
 
 .logo:hover {
@@ -97,8 +102,11 @@
   }
 
   .logo {
-    font-size: 1.6rem;
     max-width: none;
+  }
+
+  .logo__img {
+    height: 52px;
   }
 
   .menu__icon {

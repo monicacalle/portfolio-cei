@@ -160,9 +160,7 @@ section {
 .project-card__title,
 .reviews__title,
 .carousel__card-name,
-.contact__title,
-.footer__title,
-.footer__subtitle {
+.contact__title {
   color: var(--main-color);
 }
 
