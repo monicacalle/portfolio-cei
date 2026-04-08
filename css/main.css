@@ -78,6 +78,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 87.5%;
+  overflow-x: hidden;
 }
 
 h1,
@@ -136,6 +137,10 @@ body {
   line-height: 1.5;
   overflow-x: hidden;
   padding-top: var(--header-height);
+}
+
+main {
+  overflow-x: hidden;
 }
 section {
   min-height: auto;

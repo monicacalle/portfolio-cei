@@ -12,6 +12,7 @@
   margin: 0 auto;
   text-align: center;
   color: var(--third);
+  overflow-x: hidden;
 }
 
 .home picture {
@@ -19,16 +20,17 @@
   width: 100%;
   max-width: 100%;
   margin: 0 auto;
+  overflow-x: hidden;
 }
 
 .home__hero-image {
   display: block;
-  width: calc(100% - 28px);
-  max-width: calc(100% - 28px);
-  margin: 0 0 0 28px;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
   object-fit: contain;
   object-position: center center;
-  transform: none;
+  transform: translateX(28px);
 }
 
 .home__title {
