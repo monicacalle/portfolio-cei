@@ -2,17 +2,18 @@
 
 const menuIcon = document.querySelector('.menu__icon');
 const navbar = document.querySelector('.navbar');
-const sections = document.querySelectorAll('section');
 const navLinks = document.querySelectorAll('.navbar__link');
 const desktopBreakpoint = window.matchMedia('(min-width: 769px)');
+let isTicking = false;
 
 const closeMenu = () => {
     navbar.classList.remove('isActive');
     menuIcon.setAttribute('aria-expanded', 'false');
 };
 
-// Add active class to nav links based on scroll position
-window.addEventListener('scroll', () => {
+function updateActiveLink() {
+    const sections = document.querySelectorAll('section');
+
     sections.forEach((sec) => {
         const top = window.scrollY;
         const offSet = sec.offsetTop - 150;
@@ -30,7 +31,21 @@ window.addEventListener('scroll', () => {
             });
         }
     });
-});
+}
+
+window.addEventListener(
+    'scroll',
+    () => {
+        if (isTicking) return;
+
+        isTicking = true;
+        window.requestAnimationFrame(() => {
+            updateActiveLink();
+            isTicking = false;
+        });
+    },
+    { passive: true }
+);
 
 // Highlight nav link on click
 navLinks.forEach((link) => {
@@ -60,3 +75,5 @@ document.addEventListener('click', (event) => {
         closeMenu();
     }
 });
+
+updateActiveLink();

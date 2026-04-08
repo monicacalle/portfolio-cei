@@ -4,27 +4,29 @@
 const track = document.getElementById('carouselTrack');
 const nextBtn = document.getElementById('nextBtn');
 const prevBtn = document.getElementById('prevBtn');
+const reviewsSection = document.getElementById('reviews');
 
 let testimonials = [];
 let currentSlide = 0;
 let itemsPerView = getItemsPerView();
 let isAnimating = false; // guard for rapid clicks
+let hasLoadedTestimonials = false;
 
-// Fetch JSON data
-fetch('./data/reviews.json')
-    .then((res) => res.json())
-    .then((data) => {
-        testimonials = data;
+function loadTestimonials() {
+    if (hasLoadedTestimonials) return;
+    hasLoadedTestimonials = true;
 
-        // ▶️ 1. Preload all images immediately
-        testimonials.forEach((t) => {
-            const img = new Image();
-            img.src = t.image;
+    fetch('./data/reviews.json')
+        .then((res) => res.json())
+        .then((data) => {
+            testimonials = data;
+            renderCards();
+            updateTrackPosition(true);
+        })
+        .catch((error) => {
+            console.error('Error cargando testimonios:', error);
         });
-
-        renderCards();
-        updateTrackPosition(true); // place instantly without animation
-    });
+}
 
 // Calculates how many cards to show per view based on screen width
 function getItemsPerView() {
@@ -50,7 +52,8 @@ function renderCards() {
           src="${t.image}"
           alt="${t.name}"
           class="carousel__card-img"
-          width="300" height="200"        
+          width="300" height="200"
+          decoding="async"
           loading="lazy"
         />
         <h3 class="carousel__card-name">${t.name}</h3>
@@ -64,6 +67,8 @@ function renderCards() {
 // Moves the track based on currentSlide index
 function updateTrackPosition(instant = false) {
     if (isAnimating && !instant) return; // drop extra clicks during animation :contentReference[oaicite:2]{index=2}
+    if (!track.querySelector('.carousel__card')) return;
+
     isAnimating = !instant;
 
     const slideWidth = track.querySelector('.carousel__card').offsetWidth;
@@ -75,6 +80,8 @@ function updateTrackPosition(instant = false) {
 
 // Handle window resize: recalc and reset
 function handleResize() {
+    if (!hasLoadedTestimonials) return;
+
     const newView = getItemsPerView();
     if (newView !== itemsPerView) {
         itemsPerView = newView;
@@ -86,12 +93,14 @@ function handleResize() {
 
 // ▶️ 2. Next / Prev button listeners (guarded by isAnimating)
 nextBtn.addEventListener('click', () => {
+    if (!hasLoadedTestimonials) return;
     if (isAnimating) return;
     currentSlide++;
     updateTrackPosition();
 });
 
 prevBtn.addEventListener('click', () => {
+    if (!hasLoadedTestimonials) return;
     if (isAnimating) return;
     currentSlide--;
     updateTrackPosition();
@@ -99,13 +108,15 @@ prevBtn.addEventListener('click', () => {
 
 // ▶️ 3. Seamless reset on transition end
 track.addEventListener('transitionend', () => {
+    if (!hasLoadedTestimonials) return;
+
     const total = testimonials.length;
-    
+
     if (currentSlide >= total) {
         currentSlide = 0;
         updateTrackPosition(true);
     }
-    
+
     if (currentSlide < 0) {
         currentSlide = total - 1;
         updateTrackPosition(true);
@@ -116,3 +127,23 @@ track.addEventListener('transitionend', () => {
 
 // ▶️ 4. Keep it responsive
 window.addEventListener('resize', handleResize);
+
+if ('IntersectionObserver' in window && reviewsSection) {
+    const reviewsObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+
+                loadTestimonials();
+                reviewsObserver.disconnect();
+            });
+        },
+        {
+            rootMargin: '250px 0px'
+        }
+    );
+
+    reviewsObserver.observe(reviewsSection);
+} else {
+    loadTestimonials();
+}

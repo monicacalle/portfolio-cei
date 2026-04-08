@@ -1,27 +1,78 @@
 'use strict';
 
-// dynamically loads HTML sections and their JS files
-document.addEventListener('DOMContentLoaded', () => {
-    const sections = ['home', 'header', 'about', 'curriculum', 'skills', 'projects', 'reviews', 'contact', 'footer'];
-    const sectionScripts = new Set(['header', 'projects', 'reviews', 'skills']);
+const criticalSections = ['header', 'home', 'about'];
+const deferredSections = ['skills', 'curriculum', 'projects', 'reviews', 'contact', 'footer'];
+const sectionScripts = new Map([
+    ['header', 'js/header.js'],
+    ['reviews', 'js/reviews.js']
+]);
+const loadedScripts = new Set();
 
-    Promise.all(
+function runWhenIdle(callback) {
+    if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(callback, { timeout: 1200 });
+        return;
+    }
+
+    window.setTimeout(callback, 0);
+}
+
+async function loadScript(src) {
+    if (!src || loadedScripts.has(src)) return;
+
+    const existingScript = document.querySelector(`script[src="${src}"]`);
+    if (existingScript) {
+        loadedScripts.add(src);
+        return;
+    }
+
+    await new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = src;
+        script.defer = true;
+        script.addEventListener('load', resolve, { once: true });
+        script.addEventListener('error', reject, { once: true });
+        document.body.appendChild(script);
+    });
+
+    loadedScripts.add(src);
+}
+
+async function loadSection(section) {
+    const container = document.getElementById(`${section}-root`);
+    if (!container) return;
+
+    container.setAttribute('aria-busy', 'true');
+
+    const response = await fetch(`sections/${section}.html`);
+    if (!response.ok) {
+        throw new Error(`No se pudo cargar sections/${section}.html`);
+    }
+
+    container.innerHTML = await response.text();
+    container.removeAttribute('aria-busy');
+
+    const relatedScript = sectionScripts.get(section);
+    if (relatedScript) {
+        await loadScript(relatedScript);
+    }
+}
+
+async function loadSections(sections) {
+    await Promise.all(
         sections.map((section) =>
-            fetch(`sections/${section}.html`)
-            .then((res) => res.text())
-            .then((html) => {
-                document.getElementById(section).innerHTML = html;
-
-                if (sectionScripts.has(section)) {
-                    const script = document.createElement('script');
-                    script.src = `js/${section}.js`;
-                    script.defer = true;
-                    document.body.appendChild(script);
-                }
+            loadSection(section).catch((error) => {
+                console.error(`Error cargando ${section}:`, error);
             })
-            .catch((err) => console.error(`Error cargando ${section}:`, err))
         )
-    ).then(() => {
+    );
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+    await loadSections(criticalSections);
+
+    runWhenIdle(async () => {
+        await loadSections(deferredSections);
         document.dispatchEvent(new CustomEvent('sections:loaded'));
     });
 });

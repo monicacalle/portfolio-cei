@@ -3,15 +3,19 @@
   <div class="home__wrapper">
     <picture>
       <source
-        srcset="/assets/images/fondohero.png"
+        srcset="/assets/images/fondohero-optimized.png"
         media="(min-width: 769px)"
         type="image/png"
       />
       <img
         class="home__hero-image"
         src="/assets/images/mobile.png"
-        alt="Portfolio hero artwork"
-        loading="lazy"
+        alt="Editorial hero artwork for Monica Calle portfolio"
+        width="1107"
+        height="898"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
       />
     </picture>
   </div>
